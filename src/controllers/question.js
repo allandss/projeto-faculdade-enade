@@ -13,10 +13,15 @@ module.exports = {
 
 	getAll: function(req, res, next) {
 		QuestionModel.find({}, function(err, response){
+			let questionsList = [];
 			if (err){
 				next(err);
 			} else{
-				res.json(response); 
+				for (let item of response) {
+					item.file = null
+					questionsList.push(item);
+				}
+				res.json(questionsList);
 			} 
 		});
 	},
