@@ -26,7 +26,11 @@ const questionSchema = mongoose.Schema({
     answer: {
         type: String,
         required: true 
-    }    
+    },
+    file: {
+        type: String,
+        required: false 
+    }   
 });
 
 const Question = mongoose.model('Question', questionSchema)
